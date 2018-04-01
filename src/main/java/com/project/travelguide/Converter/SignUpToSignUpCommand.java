@@ -1,15 +1,15 @@
 package com.project.travelguide.Converter;
 
 import com.project.travelguide.Commands.SignUpCommand;
-import com.project.travelguide.Models.SingUp;
+import com.project.travelguide.Models.SignUp;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SignUpToSignUpCommand implements Converter<SingUp,SignUpCommand> {
+public class SignUpToSignUpCommand implements Converter<SignUp,SignUpCommand> {
 
     @Override
-    public SignUpCommand convert(SingUp source) {
+    public SignUpCommand convert(SignUp source) {
         if(source == null) return null;
 
         final SignUpCommand command = new SignUpCommand();

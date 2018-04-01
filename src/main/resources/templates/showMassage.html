@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Congtatulations</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"
+          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}">
+
+    <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous" th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h2>Welcome </h2>
+            <p>Your account is ready.
+                Please LogIn Using user id</p>
+            <form class="w3-container" action="#" th:action="@{index}">
+                <div>
+                    <div class="col-md-6">
+                        <img th:src="@{'signUp/' + ${command.id} + '/image'}"
+                             width="200" height="200">
+                    </div>
+                </div>
+                <label>Last Name: </label>
+                <p th:text="${command.lastName}"></p>
+                <label>User ID: </label>
+                <p th:text="${command.id}"></p>
+                <p>
+                    <button type="submit" class="w3-button w3-submit w3-green w3-right">SUBMIT</button>
+                </p>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,38 +1,74 @@
 package com.project.travelguide.Services;
 
 import com.project.travelguide.Commands.SignUpCommand;
-import com.project.travelguide.Models.SingUp;
+import com.project.travelguide.Converter.SignUpCommandToSignUp;
+import com.project.travelguide.Converter.SignUpToSignUpCommand;
+import com.project.travelguide.Models.SignUp;
 import com.project.travelguide.Repositorys.SignUpRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class SignUpServiceImp implements SignUpService{
     private final SignUpRepository signUpRepository;
+    private final SignUpCommandToSignUp signUpCommandToSignUp;
+    private final SignUpToSignUpCommand signUpToSignUpCommand;
 
-    public SignUpServiceImp(SignUpRepository signUpRepository) {
+    public SignUpServiceImp(SignUpRepository signUpRepository, SignUpCommandToSignUp signUpCommandToSignUp, SignUpToSignUpCommand signUpToSignUpCommand) {
         this.signUpRepository = signUpRepository;
-    }
-
-    @Override
-    public SingUp findById(Long l) {
-        Optional<SingUp> singUpOptional = signUpRepository.findById(l);
-
-        if (!singUpOptional.isPresent()) {
-            throw new RuntimeException("Recipe Not Found!");
-        }
-
-        return singUpOptional.get();
-    }
-
-    @Override
-    public void deletById(Long idToDelete) {
-        signUpRepository.deleteById(idToDelete);
+        this.signUpCommandToSignUp = signUpCommandToSignUp;
+        this.signUpToSignUpCommand = signUpToSignUpCommand;
     }
 
     @Override
     public SignUpCommand saveSignUpCommand(SignUpCommand command) {
-        return null;
+        SignUp detached = signUpCommandToSignUp.convert(command);
+
+        SignUp saved = signUpRepository.save(detached);
+        log.debug("Student is saved in DB");
+        return signUpToSignUpCommand.convert(saved);
+    }
+
+    @Override
+    public SignUp findById(Long l) {
+        Optional<SignUp> signUp = signUpRepository.findById(l);
+        if(!signUp.isPresent()) throw new RuntimeException("User not found");
+
+        return signUp.get();
+    }
+
+    @Override
+    public SignUpCommand findCommandById(Long l) {
+        return signUpToSignUpCommand.convert(findById(l));
+    }
+
+    @Override
+    public void saveImageFile(Long id, MultipartFile file) {
+
+        try {
+            SignUp signUp = signUpRepository.findById(id).get();
+
+            Byte[] byteObjects = new Byte[file.getBytes().length];
+
+            int i = 0;
+
+            for (byte b : file.getBytes()){
+                byteObjects[i++] = b;
+            }
+
+            signUp.setProfileImage(byteObjects);
+
+            signUpRepository.save(signUp);
+        } catch (IOException e) {
+            //todo handle better
+            log.error("Error occurred", e);
+
+            e.printStackTrace();
+        }
     }
 }

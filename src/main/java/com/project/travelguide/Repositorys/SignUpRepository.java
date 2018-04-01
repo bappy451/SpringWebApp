@@ -1,9 +1,8 @@
 package com.project.travelguide.Repositorys;
 
-import com.project.travelguide.Models.SingUp;
+import com.project.travelguide.Models.SignUp;
 import org.springframework.data.repository.CrudRepository;
 
-import java.util.Optional;
+public interface SignUpRepository extends CrudRepository<SignUp, Long> {
 
-public interface SignUpRepository extends CrudRepository<SingUp, Long> {
 }

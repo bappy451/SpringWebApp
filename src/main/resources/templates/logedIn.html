@@ -53,10 +53,9 @@
     <div class="w3-bar w3-white w3-card-2" id="myNavbar" th:fragment="header">
         <!-- Right-sided navbar links -->
 
-
-        <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-hover-green w3-padding w3-right">LOGIN</button>
-
-        <button onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-hover-red w3-padding w3-right">REGISTER</button>
+        <!--/*@thymesVar id="command" type="com.project.travelguide.Commands.SignUpCommand"*/-->
+        <button th:href="@{index}" class="w3-button w3-hover-green w3-padding w3-right">LogOut</button>
+        <button th:text="${command.lastName}"  class="w3-button w3-hover-red w3-padding w3-right">Name</button>
 
         <button onclick="document.getElementById('id03').style.display='block'" class="w3-button w3-hover-green w3-padding"><i class="fa fa-search"></i></button>
         <!-- booking bar -->
@@ -88,76 +87,7 @@
         </div>
 
         <button class="w3-bar-item w3-button w3-hover-black w3-right"><a href = "home.html">HOME</a></button>
-        <!--/*@thymesVar id="command" type="com.project.travelguide.Commands"*/-->
-        <div id="id01" class="w3-modal">
-            <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
 
-                <div class="w3-center"><br>
-                    <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
-                    <img src="assets/images/img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
-                </div>
-
-
-                <form class="w3-container" action="#" th:action="@{logedIn}" th:object="${command}" method="post">
-                    <div class="w3-section">
-                        <label><b>UserId(Number)</b></label>
-                        <input th:field="*{id}" class="w3-input w3-border w3-margin-bottom"type="text" placeholder="Enter Username" name="usrname" required>
-                        <label><b>Password</b></label>
-                        <input th:field="*{accPassword}" class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
-                        <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
-                        <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
-                    </div>
-                </form>
-
-                <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-                    <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
-                    <span class="w3-right w3-padding ">Forgot <a href="forgotpassword.html">password?</a></span>
-                </div>
-
-            </div>
-        </div>
-        <div id="id02" class="w3-modal">
-            <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
-
-                <div class="w3-center"><br>
-                    <span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
-                    <img src="assets/images/img_avatar5.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
-                </div>
-                <!--/*@thymesVar id="command" type="com.project.travelguide.Commands.SignUpCommand"*/-->
-                <form class="w3-container" action="#" th:action="@{showMassage}" th:object="${command}" method="post" enctype="multipart/form-data">
-                    <p>
-                        <label>First Name</label>
-                        <input class="w3-input" type="text" th:field="*{firstName}"></p>
-                    <p>
-                        <label>Last Name</label>
-                        <input class="w3-input" type="text" th:field="*{lastName}"></p>
-                    <p>
-                        <label>ID(Number)</label>
-                        <input class="w3-input" type="text" th:field="*{id}"></p>
-                    <p>
-                        <label>Email</label>
-                        <input class="w3-input" type="text" th:field="*{email}"></p>
-                    <p>
-                    <p>
-                        <label>Password</label>
-                        <input class="w3-input" type="text" th:field="*{accPassword}"></p>
-                    <p>
-                        <label>Profile Picture</label>
-                        <input id="imagefile" name="imagefile" type="file" class="file">
-                    </p>
-                    <p>
-                        <button type="submit" class="w3-button w3-submit w3-green w3-right">SUBMIT</button>
-                    </p>
-
-                </form>
-
-                <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-                    <button onclick="document.getElementById('id02').style.display='none'" type="button" class="w3-button w3-red">CANCEL</button>
-
-                </div>
-
-            </div>
-        </div>
         <div id="id03" class="w3-modal ">
             <div class="w3-modal-content">
                 <div class="w3-container">

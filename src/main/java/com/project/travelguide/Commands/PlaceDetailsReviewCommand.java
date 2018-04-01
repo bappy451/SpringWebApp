@@ -2,12 +2,12 @@ package com.project.travelguide.Commands;
 
 import com.project.travelguide.Models.Rating;
 import com.project.travelguide.Models.ReviewType;
-import com.project.travelguide.Models.SingUp;
+import com.project.travelguide.Models.SignUp;
 
 public class PlaceDetailsReviewCommand {
 
     private Long id;
-    private SingUp singUp;
+    private SignUp signUp;
     private ReviewType reviewType;
     private String description;
     private Rating rating;
@@ -20,12 +20,12 @@ public class PlaceDetailsReviewCommand {
         this.id = id;
     }
 
-    public SingUp getSingUp() {
-        return singUp;
+    public SignUp getSignUp() {
+        return signUp;
     }
 
-    public void setSingUp(SingUp singUp) {
-        this.singUp = singUp;
+    public void setSignUp(SignUp signUp) {
+        this.signUp = signUp;
     }
 
     public ReviewType getReviewType() {

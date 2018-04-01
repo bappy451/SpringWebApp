@@ -15,7 +15,7 @@ public class PlaceDetailsReviewToPlaceDetailsReviewCommand implements Converter<
         command.setDescription(source.getDescription());
         command.setRating(source.getRating());
         command.setReviewType(source.getReviewType());
-        command.setSingUp(source.getSingUp());
+        command.setSignUp(source.getSignUp());
 
         return command;
     }

@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-public class SingUp {
+public class SignUp {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

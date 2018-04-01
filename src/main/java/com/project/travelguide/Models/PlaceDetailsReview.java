@@ -15,7 +15,7 @@ public class PlaceDetailsReview {
     private Long id;
 
     @OneToOne(cascade = CascadeType.ALL)
-    private SingUp singUp;
+    private SignUp signUp;
 
     @OneToOne(cascade = CascadeType.ALL)
     private ReviewType reviewType;
@@ -34,12 +34,12 @@ public class PlaceDetailsReview {
         this.id = id;
     }
 
-    public SingUp getSingUp() {
-        return singUp;
+    public SignUp getSignUp() {
+        return signUp;
     }
 
-    public void setSingUp(SingUp singUp) {
-        this.singUp = singUp;
+    public void setSignUp(SignUp signUp) {
+        this.signUp = signUp;
     }
 
     public ReviewType getReviewType() {
