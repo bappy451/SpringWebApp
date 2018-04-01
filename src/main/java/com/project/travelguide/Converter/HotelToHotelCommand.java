@@ -13,12 +13,13 @@ public class HotelToHotelCommand implements Converter<Hotels, HotelCommand>{
         if(source == null) return null;
 
         final HotelCommand command = new HotelCommand();
-        command.setHotelId(source.getHotelId());
+        command.setId(source.getId());
         command.setHotelImage(source.getHotelImage());
         command.setHotelName(source.getHotelName());
         command.setPlaceName(source.getPlaceName());
         command.setRating(source.getRating());
         command.setZoneDetails(source.getZoneDetails());
+        command.setDescription(source.getDescription());
 
         return command;
     }

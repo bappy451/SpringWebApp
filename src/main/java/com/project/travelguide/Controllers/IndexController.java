@@ -56,7 +56,6 @@ public class IndexController {
         SignUpCommand command1 = signUpService.saveSignUpCommand(command);
         signUpService.saveImageFile(command1.getId(),file);
         model.addAttribute("command",command1);
-        System.out.println(command.getEmail());
         return "showMassage";
     }
 

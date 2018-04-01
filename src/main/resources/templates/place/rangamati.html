@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Rangamati</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"
+          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}">
+
+    <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous" th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css"> 
+        <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
+
+
+        <!--For Plugins external css-->
+        <link rel="stylesheet" href="../assets/css/animate/animate.css" />
+        <link rel="stylesheet" href="../assets/css/plugins.css" />
+
+        <!--Theme custom css -->
+        <link rel="stylesheet" href="../assets/css/style3.css">
+
+        <!--Theme Responsive css-->
+        <link rel="stylesheet" href="../assets/css/responsive.css" />
+        <link rel="stylesheet"  href="https://www.w3schools.com/w3css/4/w3.css">
+         
+
+
+        <script src="../assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="
+https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:200px;
+  }
+
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; 
+    }
+  }
+  </style>
+</head>
+<body>
+
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card-2" id="myNavbar">
+    
+    
+
+    <!-- Right-sided navbar links -->
+
+
+
+  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-hover-green w3-padding w3-right">LOGIN</button>
+  <button onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-hover-red w3-padding w3-right">REGISTER</button>
+  <button onclick="document.getElementById('id03').style.display='block'" class="w3-button w3-hover-green w3-padding"><i class="fa fa-search"></i></button>
+ <!-- hotel bar -->
+ <div class="w3-dropdown-hover w3-right">
+ <button class="w3-button w3-hover-purple">BOOKING</button>
+
+<div class="w3-dropdown-content w3-bar-block w3-card-4">
+      <a href="hotelbook.html" class="w3-bar-item w3-button">Book Hotel</a>
+      <a href="transportbook.html" class="w3-bar-item w3-button">Book Transport</a>
+      <a href="guide.html" class="w3-bar-item w3-button">Book Guide</a>
+      
+    </div>
+    </div>
+   <div class="w3-dropdown-hover w3-right">
+    <button class="w3-button w3-hover-orange">PLACES</button>
+    <div class="w3-dropdown-content w3-bar-block w3-card-4">
+
+        <a href="place/coxsbazar.html" th:href="@{/place/coxsbazar}" th class="w3-bar-item w3-button">Cox's Bazar</a>
+        <a href="place/rangamati.html" th:href="@{/place/rangamati}" class="w3-bar-item w3-button">Rangamati</a>
+      <a href="moreplaces.html" class="w3-bar-item w3-button">Discover  !  More</a>
+      
+    </div>
+  </div>
+  
+   <button class="w3-bar-item w3-button w3-hover-black w3-right"><a href = "home.html">HOME</a></button>
+      
+  
+    <div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+
+      <div class="w3-center"><br>
+        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+        <img src="../assets/images/img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+      </div>
+
+      <form class="w3-container" action="">
+        <div class="w3-section">
+          <label><b>Username</b></label>
+          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
+          <label><b>Password</b></label>
+          <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
+          <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
+          <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
+        </div>
+      </form>
+
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+        <span class="w3-right w3-padding ">Forgot <a href="forgotpassword.html">password?</a></span>
+      </div>
+
+    </div>
+  </div>
+  <div id="id02" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+
+      <div class="w3-center"><br>
+        <span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+        <img src="../assets/images/img_avatar5.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+      </div>
+
+      <form class="w3-container" action="index.php">
+        <p>
+  <label>First Name</label>
+  <input class="w3-input" type="text"></p>
+  <p>
+  <label>Last Name</label>
+  <input class="w3-input" type="text"></p>
+  <p>
+  <label>Email</label>
+  <input class="w3-input" type="text"></p>
+
+
+      </form>
+    
+
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <button onclick="document.getElementById('id02').style.display='none'" type="button" class="w3-button w3-red">CANCEL</button>
+        <button type="submit" class="w3-button w3-submit w3-green w3-right">SUBMIT</button>
+        
+      </div>
+
+    </div>
+  </div>
+      <div id="id03" class="w3-modal ">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <span onclick="document.getElementById('id03').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+        <form class="w3-container w3-card-4">
+             <input type="text" class="w3-border-block w3-input w3-white w3-mobile" placeholder="Search..">
+    <button type="submit" class="w3-button  w3-green ">Go</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+    </div>
+                                </div><!-- /.navbar-collapse -->
+                            </div><!-- /.container-fluid -->
+                        </nav>
+                    </div>
+                </div>
+            </div>  
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="http://2.bp.blogspot.com/--TK_mejr6UQ/Uuo8Qt2U3HI/AAAAAAAADvw/09JjP0LOkSg/s1600/bandarban-paddies-bangladesh_46130_990x742.jpg" alt="Image">
+        <div class="carousel-caption">
+          <h3>Fell The Beauty</h3>
+          <p>Rangamati</p>
+        </div>      
+      </div>
+
+      <div class="item">
+        <img src="http://visitbangladesh.gov.bd/wp-content/uploads/2014/11/Rangamati.jpg" alt="Image">
+        <div class="carousel-caption">
+          <h3>Fell The Beauty </h3>
+          <p>Rangamati</p>
+        </div>      
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>
+<h1 class="text-center">Beauty At It's Best</h1>
+<hr>
+  
+<div class="container-fluid">    
+  
+  <div class="row">
+    <div class="col-sm-3" >
+      <img src="https://2.bp.blogspot.com/-PymTcHoD9Wc/WUlZUwH3YuI/AAAAAAAAEiQ/XuOPc6uepAIOXZVvU60T0RMWencgM5hjgCLcBGAs/s1600/BANGLADESH%2BUNLOCKED%2B%2528Faisal%2BAkram%2B%2529.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+      
+    <div class="col-sm-6" > 
+      <img src="http://3.bp.blogspot.com/-qvPIW73izmo/UuZRIvgV3bI/AAAAAAAAShs/dAQAFtIh8jw/s1600/Rangamati2.jpg" class="img-responsive" style="width:100%" alt="Image">
+          
+    </div>
+    <div class="col-sm-3">
+            <img src="https://c1.staticflickr.com/9/8229/8500794550_83e48f6a86_b.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+
+      
+
+      </div>
+    </div>
+    <hr>
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1>Rangamati</h1>
+          <p>Rangamati, a small town located amongst the green hills, lakes and rivers of the Chittagong Hill Tracts. It is known as the Lake City of Bangladesh as this place is located on the bank of the beautiful Kaptai Lake. </p>
+      
+    </div>
+    <hr>
+    <div class="container-fluid">
+      <div class="row">
+              <div class="col-sm-3">
+          <img src="http://2.bp.blogspot.com/-a9FoxAHVsP8/Uuo8P9nzkpI/AAAAAAAADvc/1yKJw2LT3qg/s1600/Nilgiri-Resort-Bandarban-Bangladesh02.jpg" class="img-responsive" style="width:100%" alt="Image">
+        </div>
+        <div class="col-sm-6">
+       <div class="embed-responsive embed-responsive-16by9">
+       <iframe class="embed-responsive-contain" src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d117761.04266386465!2d92.24461098389588!3d22.727030273465196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3752ba825b22f935%3A0x16694440255859d5!2sRangamati+Hill+District%2C+Chittagong+Division%2C+Bangladesh!3m2!1d22.732417299999998!2d92.29851339999999!5e0!3m2!1sen!2s!4v1501881452085" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+          </div>
+          </div>
+    
+  
+        <div class="col-sm-3">
+          <img src="http://www.travelobangladesh.com/images/package/1357129537_0!!-!!rangamati.jpg" class="img-responsive" style="width:100%" alt="Image">
+        </div>
+        
+      </div>
+      
+    </div>
+    <br>
+    <footer class="container-fluid text-center bg-grey">
+    <br>
+      
+    </footer>
+
+   
+  
+
+
+
+
+</body>
+</html>

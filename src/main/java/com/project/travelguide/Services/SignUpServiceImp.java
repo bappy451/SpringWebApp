@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.transaction.Transactional;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -26,6 +27,7 @@ public class SignUpServiceImp implements SignUpService{
     }
 
     @Override
+    @Transactional
     public SignUpCommand saveSignUpCommand(SignUpCommand command) {
         SignUp detached = signUpCommandToSignUp.convert(command);
 
@@ -43,11 +45,13 @@ public class SignUpServiceImp implements SignUpService{
     }
 
     @Override
+    @Transactional
     public SignUpCommand findCommandById(Long l) {
         return signUpToSignUpCommand.convert(findById(l));
     }
 
     @Override
+    @Transactional
     public void saveImageFile(Long id, MultipartFile file) {
 
         try {
