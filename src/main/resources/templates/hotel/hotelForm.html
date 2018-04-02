@@ -20,14 +20,14 @@
 <div class="container-fluid" style="margin-top: 20px">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <!--/*@thymesVar id="hotel" type="com.project.travelguide.Commands.HotelCommand"*/-->
-            <form th:object="${hotel}" th:action="@{/booking/}" method="post">
+
+            <!--/*@thymesVar id="command" type="com.project.travelguide.Commands.HotelCommand"*/-->
+            <form th:object="${command}" th:action="@{/hotel/savedHotel}" method="post" enctype="multipart/form-data">
                 <div >
-                    <form  action="http:\\localhost" method="post" enctype="multipart/form-data"
-                           th:action="@{'/recipe/' + ${hotel.getId()} + '/image'}">
+                    <p>
                         <label class="control-label">Select File</label>
                         <input id="imagefile" name="imagefile" type="file" class="file">
-                    </form>
+                    </p>
                 </div>
                 <div>
                     <label>ID:</label>
@@ -46,7 +46,7 @@
 
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h1 class="panel-title">Notes</h1>
+                        <h1 class="panel-title">Hotel Description</h1>
                     </div>
                     <div class="panel-body">
                         <div class="row">
@@ -56,22 +56,6 @@
                         </div>
                     </div>
                 </div>
-                <p>
-                <div class="col-md-3 form-group">
-                    <label>Difficulty:</label>
-                    <select class="form-control" th:field="*{rating}">
-                        <option th:each="difficultyValue : ${T(com.project.travelguide.Models.Rating).values()}"
-                                th:value="${difficultyValue.name()}"
-                                th:text="${difficultyValue.name()}">val
-                        </option>
-                    </select>
-                    <select class="form-control" th:remove="all">
-                        <option>Easy</option>
-                        <option>Medium</option>
-                        <option>Hard</option>
-                    </select>
-                </div>
-                </p>
                 <div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>

@@ -20,23 +20,23 @@
 <div class="container-fluid" style="margin-top: 20px">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <!--/*@thymesVar id="command" type="com.project.travelguide.Commands.PlaceDetailsCommand"*/-->
+            <!--/*@thymesVar id="command" type="com.project.travelguide.Commands.HotelCommand"*/-->
             <h2 >Welcome </h2>
             <form class="w3-container" action="#" >
                 <div>
                     <div class="col-md-6">
-                        <img th:src="@{'/place/' + ${command.id} + '/image'}"
+                        <img th:src="@{'/hotel/' + ${command.id} + '/image'}"
                              width="200" height="200">
                     </div>
                 </div>
                 <label>Place Name: </label>
                 <p th:text="${command.placeName}">XXXX</p>
-                <label>Place Description: </label>
-                <p th:text="${command.id}">****</p>
+                <label>Hotel Description: </label>
+                <p th:text="${command.description}">****</p>
                 <label>Buget: </label>
-                <p th:text="${command.overAllBugetRange}">****</p>
+                <p th:text="${command.placeName}">****</p>
                 <p>
-                    <a href="/travelguide/templates/index.html" th:href="@{/travelguide/templates/index}" th class="w3-bar-item w3-button">Get Back To Home</a>
+                    <a href="/travelguide/templates/index.html" th:href="@{/travelguide/templates/index}" class="w3-bar-item w3-button">Get Back To Home</a>
                 </p>
             </form>
         </div>

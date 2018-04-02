@@ -54,8 +54,15 @@
         <!-- Right-sided navbar links -->
 
         <!--/*@thymesVar id="command" type="com.project.travelguide.Commands.SignUpCommand"*/-->
-        <button th:href="@{index}" class="w3-button w3-hover-green w3-padding w3-right">LogOut</button>
-        <button th:text="${command.lastName}"  class="w3-button w3-hover-red w3-padding w3-right">Name</button>
+        <button th:href="@{/}" class="w3-button w3-hover-green w3-padding w3-right">LogOut</button>
+        <div class="w3-dropdown-hover w3-right">
+            <button th:text="${command.lastName}"  class="w3-button w3-hover-red ">Name</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="#" th:href="@{/place/placeForm}" th class="w3-bar-item w3-button">Add New Places</a>
+                    <a href="#" th:href="@{/hotel/hotelForm}" class="w3-bar-item w3-button">Add New Hotels</a>
+                    <a href="#" th:href="@{/place/places}" class="w3-bar-item w3-button">Upcoming</a>
+                </div>
+        </div>
 
         <button onclick="document.getElementById('id03').style.display='block'" class="w3-button w3-hover-green w3-padding"><i class="fa fa-search"></i></button>
         <!-- hotel bar -->
@@ -63,26 +70,18 @@
             <button class="w3-button w3-hover-purple">BOOKING</button>
 
             <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                <a href="https://www.jovago.net/en-gb/hotels/bangladesh/rangamati/10014550?q=Rangamati&roomCount=1&adults=1" class="w3-bar-item w3-button">Book Hotel</a>
-                <a href="transportbook.html" class="w3-bar-item w3-button">Book Transport</a>
-                <a href="guide.html" class="w3-bar-item w3-button">Book Guide</a>
+                <a href="https://www.booking.com/country/bd.html" class="w3-bar-item w3-button">Book Hotel</a>
+                <a href="https://www.shohoz.com/" class="w3-bar-item w3-button">Book Transport</a>
+                <a href="#" class="w3-bar-item w3-button">Book Guide</a>
 
             </div>
         </div>
         <div class="w3-dropdown-hover w3-right">
             <button class="w3-button w3-hover-orange">PLACES</button>
             <div class="w3-dropdown-content w3-bar-block w3-card-4">
-
-                <a href="place/coxsbazar.html" class="w3-bar-item w3-button">Cox's Bazar</a>
-                <a href="sundarban.html" class="w3-bar-item w3-button">Sundarban</a>
-                <a href="sylhet.html" class="w3-bar-item w3-button">Sylhet</a>
-                <a href="Chittagong.html" class="w3-bar-item w3-button">Chittagong</a>
-                <a href="khagrachari.html" class="w3-bar-item w3-button">Khagrachari</a>
-                <a href="place/rangamati.html" class="w3-bar-item w3-button">Rangamati</a>
-                <a href="bandarban.html" class="w3-bar-item w3-button">Bandarban</a>
-                <a href="patenga.html" class="w3-bar-item w3-button">Patenga</a>
-                <a href="moreplaces.html" class="w3-bar-item w3-button">Discover  !  More</a>
-
+                <a href="coxsbazar.html" th:href="@{/place/coxsbazar}" th class="w3-bar-item w3-button">Cox's Bazar</a>
+                <a href="rangamati.html" th:href="@{/place/rangamati}" class="w3-bar-item w3-button">Rangamati</a>
+                <a href="places.html" th:href="@{/place/places}" class="w3-bar-item w3-button">Discover More...</a>
             </div>
         </div>
 

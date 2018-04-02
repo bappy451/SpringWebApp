@@ -44,7 +44,7 @@ public class IndexController {
         this.signUpService = signUpService;
     }
 
-    @RequestMapping({"","/","index"})
+    @RequestMapping({"","/","index","/travelguide/templates/index"})
     public String getIndexPage(Model model){
         log.error("index Controller method");
         model.addAttribute("command",new SignUpCommand());
@@ -72,10 +72,8 @@ public class IndexController {
             System.out.println(e);
             return "redirect:index";
         }
-
         return "redirect:index";
     }
-
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(ChangeSetPersister.NotFoundException.class)

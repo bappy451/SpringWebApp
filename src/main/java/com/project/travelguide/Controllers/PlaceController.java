@@ -42,7 +42,7 @@ public class PlaceController {
         model.addAttribute("command",command1);
         return "place/savedPlace";
     }
-    @PostMapping("place/{id}/image")
+    @PostMapping("Faltuuuuu")
     public String getShow(Model model, @ModelAttribute PlaceDetailsCommand command){
         System.out.println(command.getId());
         try{
@@ -71,5 +71,17 @@ public class PlaceController {
         model.addAttribute("command",new SignUpCommand());
         return "place/rangamati";
     }
+    @RequestMapping({"place/places"})
+    public String getPlaces(Model model){
+        model.addAttribute("placeDetails",placeDetailsRepository.findAll());
+        return "place/places";
+    }
 
+    @GetMapping("/place/{id}/savedPlace")
+    public String getPlacesById(Model model, @PathVariable String id){
+        log.error(id);
+        PlaceDetailsCommand command = placeService.findCommandById(new Long(id));
+        model.addAttribute("command",command);
+        return "place/savedPlace";
+    }
 }
