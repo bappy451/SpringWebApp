@@ -4,17 +4,27 @@
     <meta charset="UTF-8"/>
     <title>Home</title>
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"
-          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}">
-
-    <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous" th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/style2.css}">
+    <link rel="stylesheet" th:href="@{/css/style3.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" th:href="@{/css/plugins.css}">
+    <link rel="stylesheet" th:href="@{/css/responsive.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/font-awwsome.min.css}">
+    <script th:src="@{/js/wow.min.js}"></script>
+    <script th:src="@{/js/util.js}"></script>
+    <script th:src="@{/js/plugins.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/jquery.easing.1.3.js}"></script>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/jquery.scrollex.min.js}"></script>
+    <script th:src="@{/js/jquery.scrolly.min.js}"></script>
+    <script th:src="@{/js/jquery-1.11.2.min.js}"></script>
+    <script th:src="@{/js/main1.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+    <script th:src="@{/js/modernizr-2.8.3-respond-1.4.2.min.js}"></script>
+    <script th:src="@{/js/skel.min.js}"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
@@ -77,14 +87,14 @@
             </div>
         </div>
 
-        <button class="w3-bar-item w3-button w3-hover-black w3-right"><a href = "home.html">HOME</a></button>
+        <button class="w3-bar-item w3-button w3-hover-black w3-right"><a href="index.html" th:href="@{/}">HOME</a></button>
         <!--/*@thymesVar id="command" type="com.project.travelguide.Commands"*/-->
         <div id="id01" class="w3-modal">
             <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
 
                 <div class="w3-center"><br>
                     <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
-                    <img src="assets/images/img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+                    <img th:src="@{/images/img_avatar4.png}" src="assets/images/img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
                 </div>
 
 
@@ -111,29 +121,32 @@
 
                 <div class="w3-center"><br>
                     <span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
-                    <img src="assets/images/img_avatar5.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+                    <img th:src="@{/images/img_avatar5.png}" src="assets/images/img_avatar5.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
                 </div>
                 <!--/*@thymesVar id="command" type="com.project.travelguide.Commands.SignUpCommand"*/-->
                 <form class="w3-container" action="#" th:action="@{showMassage}" th:object="${command}" method="post" enctype="multipart/form-data">
+                    <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
+                        <p>Please Correct Errors Below</p>
+                    </div>
                     <p>
                         <label>First Name</label>
-                        <input class="w3-input" type="text" th:field="*{firstName}"></p>
+                        <input class="w3-input" type="text" th:field="*{firstName}" required></p>
                     <p>
                         <label>Last Name</label>
-                        <input class="w3-input" type="text" th:field="*{lastName}"></p>
+                        <input class="w3-input" type="text" th:field="*{lastName}" required></p>
                     <p>
                         <label>ID(Number)</label>
-                        <input class="w3-input" type="text" th:field="*{id}"></p>
+                        <input class="w3-input" type="number" th:field="*{id}" required></p>
                     <p>
                         <label>Email</label>
-                        <input class="w3-input" type="text" th:field="*{email}"></p>
+                        <input class="w3-input" type="email" th:field="*{email}" required></p>
                     <p>
                     <p>
                         <label>Password</label>
-                        <input class="w3-input" type="text" th:field="*{accPassword}"></p>
+                        <input class="w3-input" type="password" th:field="*{accPassword}" required></p>
                     <p>
                         <label>Profile Picture</label>
-                        <input id="imagefile" name="imagefile" type="file" class="file">
+                        <input id="imagefile" name="imagefile" type="file" class="file" required>
                     </p>
                     <p>
                         <button type="submit" class="w3-button w3-submit w3-green w3-right">SUBMIT</button>
@@ -170,8 +183,8 @@
 </div>
 </div>
 </header> <!-- End Header Section -->
-<button class="w3-circle w3-black" style="height: 100px; width:100px;padding: 0px; margin:50px 20px;"  href="#HOME"><img src="assets/images/logo.png" alt="" /></button>
-<button class="w3-circle w3-black w3-right" style="height: 100px; width:100px;padding: 0px; margin:50px 20px;"  href="#HOME"><img src="assets/images/logo.png" alt="" /></button>
+<button class="w3-circle w3-black" style="height: 100px; width:100px;padding: 0px; margin:50px 20px;"  href="#HOME"><img src="assets/images/logo.png" th:src="@{/images/logo.png}" alt="" /></button>
+<button class="w3-circle w3-black w3-right" style="height: 100px; width:100px;padding: 0px; margin:50px 20px;"  href="#HOME"><img src="assets/images/logo.png" th:src="@{/images/logo.png}" alt="" /></button>
 <div class="container" style="margin-top: -100px; padding-top: -100px;">
 
     <div id="myCarousel" class="carousel slide w3-container-top w3-center" style="margin-top: -40px;padding-top: -100px;" data-ride="carousel" data-wow-duration="1s">
@@ -185,7 +198,8 @@
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
-            <div class="item active" style="background-image:url(assets/images/bannerbg.jpg);background-repeat:no-repeat; background-size: cover;">
+            <div class="item active" style="background-image:url(assets/images/bannerbg.jpg); background-repeat:no-repeat; background-size: cover;">
+
 
                 <div class="slider_overlay">
                     <div class="w3-display-container" >
@@ -270,7 +284,7 @@
                 <div class="abouts_content">
                     <div class="col-md-6">
                         <div class="single_abouts_text text-center wow slideInLeft" data-wow-duration="1s">
-                            <img src="assets/images/ab.png" alt="" style="width: 300px; height: 300px;" />
+                            <img th:src="@{/images/ab.png}" src="assets/images/ab.png" alt="" style="width: 300px; height: 300px;" />
                         </div>
                     </div>
 
@@ -327,67 +341,27 @@
 
                         <div class="main_portfolio_content">
                             <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
-                                <img src="assets/images2/3.jpg" alt="" style="height: 284px;"  />
+                                <img th:src="@{/images/3.jpg}" src="assets/images2/3.jpg" alt="" style="height: 284px;"  />
                                 <div class="portfolio_images_overlay text-center">
                                     <h6>COX'S BAZAR</h6>
                                     <p class="product_price"></p>
-                                    <a href="place/coxsbazar.html" class="btn btn-primary">Click here</a>
+                                    <a href="/place/coxsbazar.html" th:href="@{/place/coxsbazar}" class="btn btn-primary">Click here</a>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
-                                <img src="assets/images2/9.jpg" alt="" style="height: 284px;"  />
+                                <img th:src="@{/images/9.jpg}" src="assets/images2/9.jpg" alt="" style="height: 284px;"  />
                                 <div class="portfolio_images_overlay text-center">
-                                    <h6>Bandarban</h6>
+                                    <h6>Rangamati</h6>
                                     <p class="product_price"></p>
-                                    <a href="bandarban.html" class="btn btn-primary">Click here</a>
+                                    <a href="/place/rangamati.html" th:href="@{/place/rangamati}" class="btn btn-primary">Click here</a>
                                 </div>
-                            </div>
+
                             <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
-                                <img src="assets/images2/14.jpg" alt="" style="height: 284px;" />
-                                <div class="portfolio_images_overlay text-center">
-                                    <h6>Khagrachari</h6>
-                                    <p class="product_price"></p>
-                                    <a href="khagrachari.html" class="btn btn-primary">Click here</a>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
-                                <img src="assets/images2/13.jpg" alt="" style="height: 284px;" />
-                                <div class="portfolio_images_overlay text-center">
-                                    <h6>Chittagong</h6>
-                                    <p class="product_price"></p>
-                                    <a href="chittagong.html" class="btn btn-primary">Click here</a>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
-                                <img src="assets/images2/15.jpg" alt="" style="height: 203px;" />
-                                <div class="portfolio_images_overlay text-center ">
-                                    <h6>Sylhet</h6>
-                                    <p class="product_price"></p>
-                                    <a href="sylhet.html" class="btn btn-primary">Click here</a>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
-                                <img src="assets/images2/16.jpg" alt="" />
-                                <div class="portfolio_images_overlay text-center">
-                                    <h6>Sundarban</h6>
-                                    <p class="product_price"></p>
-                                    <a href="sundarban.html" class="btn btn-primary">Click here</a>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
-                                <img src="assets/images2/2.jpg" alt="" style="height: 203px;"/>
-                                <div class="portfolio_images_overlay text-center">
-                                    <h6>Kuakata</h6>
-                                    <p class="product_price"></p>
-                                    <a href="kuakata.html" class="btn btn-primary">Click here</a>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-4 col-xs-6 single_portfolio_text">
-                                <img src="assets/images2/18.jpg" alt="" style="height: 203px;"/>
+                                <img th:src="@{/images/18.jpg}" src="assets/images2/18.jpg" alt="" style="height: 203px;"/>
                                 <div class="portfolio_images_overlay text-center">
                                     <h6>There Are MORE....</h6>
                                     <p class="product_price"></p>
-                                    <a href="moreplaces.html" class="btn btn-primary">Click here</a>
+                                    <a href="/place/places" th:href="@{/place/places}" class="btn btn-primary">Click here</a>
                                 </div>
                             </div>
                         </div>
@@ -474,15 +448,15 @@
                 <div class="row">
                     <div class="main_mobail_apps_content wow zoomIn">
                         <div class="col-md-5 col-sm-12 text-center">
-                            <img src="assets/images/iphone.png" alt="" />
+                            <img th:src="@{/images/iphone.png}" src="assets/images/iphone.png" alt="" />
                         </div>
                         <div class="col-md-7 col-sm-12">
                             <div class="single_monail_apps_text">
                                 <h4> Happy to Announce </h4>
                                 <h1>Mobile App <span>will be Available in every OS platform.</span></h1>
 
-                                <a href=""><img src="assets/images/google.png" alt="" /></a>
-                                <a href=""><img src="assets/images/apps.png" alt="" /></a>
+                                <a href=""><img th:src="@{/images/google.png}" src="assets/images/google.png" alt="" /></a>
+                                <a href=""><img th:src="@{/images/app.png}" src="assets/images/apps.png" alt="" /></a>
                             </div>
                         </div>
                     </div>

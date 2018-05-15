@@ -3,12 +3,15 @@ package com.project.travelguide.Controllers;
 import com.project.travelguide.Commands.HotelCommand;
 import com.project.travelguide.Repositorys.HotelRepository;
 import com.project.travelguide.Services.HotelService;
+import javassist.NotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
 
@@ -52,5 +55,20 @@ public class HotelController {
         HotelCommand command = hotelService.findCommandById(new Long(id));
         model.addAttribute("command",command);
         return "hotel/savedHotel";
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(NotFoundException.class)
+    public ModelAndView handleNotFound(Exception exception){
+
+        log.error("Handling not found exception");
+        log.error(exception.getMessage());
+
+        ModelAndView modelAndView = new ModelAndView();
+
+        modelAndView.setViewName("404error");
+        modelAndView.addObject("exception", exception);
+
+        return modelAndView;
     }
 }

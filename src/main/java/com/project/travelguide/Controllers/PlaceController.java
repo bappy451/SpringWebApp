@@ -5,12 +5,15 @@ import com.project.travelguide.Commands.SignUpCommand;
 import com.project.travelguide.Models.PlaceDetails;
 import com.project.travelguide.Repositorys.PlaceDetailsRepository;
 import com.project.travelguide.Services.PlaceService;
+import javassist.NotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
 

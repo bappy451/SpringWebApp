@@ -31,15 +31,15 @@
                 </div>
                 <div>
                     <label>ID:</label>
-                    <input type="text" class="form-control" th:field="*{id}"/>
+                    <input type="number" class="form-control" th:field="*{id}" required/>
                 </div>
                 <div>
                     <label>Place Name:</label>
-                    <input type="text" class="form-control" th:field="*{placeName}"/>
+                    <input type="text" class="form-control" th:field="*{placeName}" required/>
                 </div>
                 <div>
                     <label>Over All Budget Range:</label>
-                    <input type="text" class="form-control" th:field="*{overAllBugetRange}"/>
+                    <input type="text" class="form-control" th:field="*{overAllBugetRange}" required/>
                 </div>
                 <div class="panel panel-primary">
                     <div class="panel-heading">

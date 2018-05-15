@@ -6,12 +6,15 @@ import com.project.travelguide.Services.SignUpService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
+import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpSession;
 
 @Slf4j
 @Controller
@@ -75,19 +78,9 @@ public class IndexController {
         return "redirect:index";
     }
 
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(ChangeSetPersister.NotFoundException.class)
-    public ModelAndView handleNotFound(Exception exception){
-
-        log.error("Handling not found exception");
-        log.error(exception.getMessage());
-
-        ModelAndView modelAndView = new ModelAndView();
-
-        modelAndView.setViewName("404error");
-        modelAndView.addObject("exception", exception);
-        log.debug("404 error page loading");
-
-        return modelAndView;
+    @RequestMapping("/logout")
+    public String getLogedOut(HttpSession session){
+        session.invalidate();
+        return "logedOut";
     }
 }
